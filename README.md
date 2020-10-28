@@ -19,8 +19,15 @@ To use:
 
     // this will load everything under Fonts (ttf), Textures (png) and TextureAtlases (atlasspec) folders,
     // bake them and store them in the AssetsManager
-    ContentLoader.LoadContent($@"{Directory.GetCurrentDirectory()}\Content\", "Fonts", "Textures", "TextureAtlases", graphicsDevice);
-    SpriteFont font = AssetsManager.Instance.GetSpriteFont("Arial"); // assumes Arial.ttf is in .\Content\Fonts folder
+    ContentLoader.LoadContent(
+        $@"{Directory.GetCurrentDirectory()}\Content\",
+        "Fonts",
+        "Textures",
+        "TextureAtlases",
+        graphicsDevice);
+        
+    // assumes Arial.ttf is in .\Content\Fonts folder
+    SpriteFont font = AssetsManager.Instance.GetSpriteFont("Arial");
 
 # Developer
 Written by Greg Moller (greg.moller@gmail.com)
