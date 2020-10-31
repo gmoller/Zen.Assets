@@ -20,7 +20,7 @@ namespace Zen.Assets
 
         public static AssetsManager Instance => Lazy.Value;
 
-        private ContentManager ContentManager { get; set; }
+        public ContentManager ContentManager { get; set; }
 
         private AssetsManager()
         {
