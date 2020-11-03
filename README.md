@@ -3,6 +3,8 @@
 This is a helper project for a MonoGame project to store game assets.
 It can be used to store and retreieve SpriteFonts, Textures, TextureAtlases, Sounds and Animations.
 
+Nuget package download: https://www.nuget.org/packages/Zen.Assets/0.1.1
+
 # Example
 To use:
 (for resources compiled to xnb's)
