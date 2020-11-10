@@ -32,7 +32,7 @@ To use:
     SpriteFont font = AssetsManager.Instance.GetSpriteFont("Arial");
 
 # Developer
-Written by Greg Moller (greg.moller@gmail.com)
+Written by Greg Moller (greg.moller@gmail.com)  
 If you have any questions drop me a line at the above email.
 
 # License
