@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework.Graphics;
 using NUnit.Framework;
+using Zen.Assets;
 
 namespace Zen.AssetsTests
 {
@@ -10,9 +12,17 @@ namespace Zen.AssetsTests
         }
 
         [Test]
-        public void Test1()
+        public void Texture_can_be_added()
         {
-            Assert.Pass();
+            Texture2D texture1 = null;
+            AssetsManager.Instance.AddTexture("Foo", texture1);
+
+            Assert.AreEqual(texture1, AssetsManager.Instance.GetTexture("Foo"));
+
+            Texture2D texture2 = null;
+            AssetsManager.Instance.AddTexture("Foo", texture2);
+
+            Assert.AreEqual(texture2, AssetsManager.Instance.GetTexture("Foo"));
         }
     }
 }

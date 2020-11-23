@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Zen.Assets</AssemblyName>
     <RootNamespace>Zen.Assets</RootNamespace>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <Authors>Greg Moller</Authors>
     <Company>Zen</Company>
     <Description>This is a helper project for a MonoGame project to store game assets.</Description>

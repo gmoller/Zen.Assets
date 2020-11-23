@@ -53,15 +53,15 @@ namespace Zen.Assets
             AddTexture(assetName, assetName);
         }
 
-        public void AddTexture(string key, Texture2D texture)
-        {
-            _textures.Add(key, texture);
-        }
-
         public void AddTexture(string key, string assetName)
         {
             var texture = ContentManager.Load<Texture2D>(assetName);
             AddTexture(key, texture);
+        }
+
+        public void AddTexture(string key, Texture2D texture)
+        {
+            _textures[key] = texture;
         }
 
         public Texture2D GetTexture(string key)
@@ -80,7 +80,7 @@ namespace Zen.Assets
         #region Animations
         public void AddAnimation(string key, AnimationSpec spec)
         {
-            _animations.Add(key, spec);
+            _animations[key] = spec;
         }
 
         public AnimationSpec GetAnimations(string key)
@@ -97,6 +97,12 @@ namespace Zen.Assets
         #endregion
 
         #region Atlases
+        public void AddAtlas(string key, string assetName)
+        {
+            var json = File.ReadAllText($"Content\\{assetName}.atlasspec");
+            var atlasSpec = JsonConvert.DeserializeObject<AtlasSpec>(json);
+            AddAtlas(key, atlasSpec);
+        }
 
         public void AddAtlas(string key, AtlasSpec spec)
         {
@@ -109,14 +115,7 @@ namespace Zen.Assets
                 spec2.Frames.Add(item);
             }
 
-            _atlases.Add(key, spec2);
-        }
-
-        public void AddAtlas(string key, string assetName)
-        {
-            var json = File.ReadAllText($"Content\\{assetName}.atlasspec");
-            var atlasSpec = JsonConvert.DeserializeObject<AtlasSpec>(json);
-            AddAtlas(key, atlasSpec);
+            _atlases[key] = spec2;
         }
 
         public AtlasSpec2 GetAtlas(string key)
@@ -130,7 +129,6 @@ namespace Zen.Assets
                 throw new Exception($"Key [{key}] not found in Atlases.", e);
             }
         }
-
         #endregion
 
         #region Sounds
@@ -155,15 +153,15 @@ namespace Zen.Assets
             AddSound(assetName, assetName);
         }
 
-        public void AddSound(string key, SoundEffect sound)
-        {
-            _sounds.Add(key, sound);
-        }
-
         public void AddSound(string key, string assetName)
         {
             var sound = ContentManager.Load<SoundEffect>(assetName);
             AddSound(key, sound);
+        }
+
+        public void AddSound(string key, SoundEffect sound)
+        {
+            _sounds[key] = sound;
         }
 
         public SoundEffect GetSound(string key)
@@ -204,12 +202,12 @@ namespace Zen.Assets
         public void AddSpriteFont(string key, string assetName)
         {
             var spriteFont = ContentManager.Load<SpriteFont>(assetName);
-            _spriteFonts.Add(key, spriteFont);
+            AddSpriteFont(key, spriteFont);
         }
 
         public void AddSpriteFont(string key, SpriteFont font)
         {
-            _spriteFonts.Add(key, font);
+            _spriteFonts[key] = font;
         }
 
         public SpriteFont GetSpriteFont(string key)
